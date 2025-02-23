@@ -2,32 +2,46 @@ import { styled } from "styled-components";
 
 interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
   fontSize?: string;
+  fontWeight?: string;
+  color?: string;
 }
 
 const StyledH1 = styled.h1<TitleProps>`
-  font-size: ${(props) => props.fontSize || "36px"};
-  color: blue; // Пример стиля
+  font-size: ${(props) => props.fontSize};
+  font-weight: ${(props) => props.fontWeight};
+  color: ${(props) => props.fontSize};
 `;
 
 const StyledH2 = styled.h2<TitleProps>`
-  color: green; // Пример стиля
+  font-size: ${(props) => props.fontSize};
+  font-weight: ${(props) => props.fontWeight};
+  color: ${(props) => props.fontSize};
 `;
 
 const StyledH3 = styled.h3<TitleProps>`
-  color: red; // Пример стиля
+  font-size: ${(props) => props.fontSize};
+  font-weight: ${(props) => props.fontWeight};
+  color: ${(props) => props.fontSize};
 `;
 
 const StyledH4 = styled.h4<TitleProps>`
-  color: purple; // Пример стиля
+  font-size: ${(props) => props.fontSize};
+  font-weight: ${(props) => props.fontWeight};
+  color: ${(props) => props.fontSize};
 `;
 
 const StyledH5 = styled.h5<TitleProps>`
-  color: orange; // Пример стиля
+  font-size: ${(props) => props.fontSize};
+  font-weight: ${(props) => props.fontWeight};
+  color: ${(props) => props.fontSize};
 `;
 
 const StyledH6 = styled.h6<TitleProps>`
-  color: brown; // Пример стиля
+  font-size: ${(props) => props.fontSize};
+  font-weight: ${(props) => props.fontWeight};
+  color: ${(props) => props.fontSize};
 `;
+
 export const StyledTitles = {
   h1: StyledH1,
   h2: StyledH2,
