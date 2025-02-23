@@ -1,3 +1,11 @@
+import { StyledPageContainer } from "../../components/Container/styles"
+
+
 export const MainPage: React.FC = () => {
-    return <>Контент</>
-}
+    return (
+        <StyledPageContainer>
+            <section>
+            </section>
+        </StyledPageContainer>
+    );
+};

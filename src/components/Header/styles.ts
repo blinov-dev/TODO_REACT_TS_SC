@@ -6,13 +6,6 @@ export const StyledHeader = styled.header`
   box-shadow: 0px 2px 8px 5px #262c35;
 `;
 
-export const StyledLogo = styled.a`
-  cursor: pointer;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 32px;
-`;
-
 export const StyledUserMenuLink = styled.a`
   width: 30px;
   height: 30px;

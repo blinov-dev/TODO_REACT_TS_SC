@@ -10,11 +10,22 @@ export const GlobalStyle = createGlobalStyle`
     }
     html {
         background-color: #70808d;
+        height: 100%;
     }
-    body {
+    #root {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
         background-color: #a4aeb6;
     }
     ul{
         list-style: none;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+        &:hover,&:active {
+            color: inherit;
+        }
     }
 `;

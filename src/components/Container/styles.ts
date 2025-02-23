@@ -25,6 +25,14 @@ export const StyledContainer = styled.div<StyledContainerProps>`
 export const StyledMainContainer = styled(StyledContainer)`
   width: 90%;
   display: flex;
-  justify-content: space-between;
   margin: 0 auto;
+`;
+
+export const StyledPageContainer = styled(StyledMainContainer)`
+  min-height: 100%;
+  flex-direction: column;
+  flex: 1;
+  gap: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 `;

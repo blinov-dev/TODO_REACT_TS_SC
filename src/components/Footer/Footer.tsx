@@ -1,11 +1,16 @@
+import { StyledMainContainer } from "../Container/styles";
+import { MainLogo } from "../UI";
+import { Link } from "../UI/Link/Link";
 import { StyledFooter } from "./styles";
 
 const Footer: React.FC = () => {
     return (
         <StyledFooter>
-            <a>ЛОГОТИП</a>
+            <StyledMainContainer alignItems="center" padding="10px 0" justifyContent="space-between">
+                <MainLogo href="/">To-Do List</MainLogo>
 
-            <p>BlinovDev</p>
+                <Link href="/">BlinovDev</Link>
+            </StyledMainContainer>
         </StyledFooter>
     );
 }
