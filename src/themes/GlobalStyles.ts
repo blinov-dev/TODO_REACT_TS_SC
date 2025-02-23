@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
         flex-direction: column;
         min-height: 100vh;
         background-color: #a4aeb6;
+        font-family: 'Comic Sans MS', sans-serif, 'Arial';
     }
     ul{
         list-style: none;

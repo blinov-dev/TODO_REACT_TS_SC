@@ -1,4 +1,4 @@
-import { GlobalStyle } from '../themes';
+import { GlobalStyle } from '../../themes';
 
 import Header from "../Header/Header"
 import Footer from '../Footer/Footer';

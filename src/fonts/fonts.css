@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Comic Sans MS";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./ComicSansMS.woff") format("woff"),
+    url("./ComicSansMS.woff2") format("woff2");
+}

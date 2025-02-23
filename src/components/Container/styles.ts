@@ -1,25 +1,27 @@
+import { JSX } from "react";
 import styled from "styled-components";
 
 type StyledContainerProps = {
-  width?: string;
-  display?: string;
-  flexDirection?: string;
-  justifyContent?: string;
-  alignItems?: string;
-  margin?: string;
-  padding?: string;
-  gap?: string;
+  as?: keyof JSX.IntrinsicElements;
+  $width?: string;
+  $display?: string;
+  $flexDirection?: string;
+  $justifyContent?: string;
+  $alignItems?: string;
+  $margin?: string;
+  $padding?: string;
+  $gap?: string;
 };
 
 export const StyledContainer = styled.div<StyledContainerProps>`
-  width: ${(props) => props.width || "100%"};
-  display: ${(props) => props.display || "flex"};
-  gap: ${(props) => props.gap || "0"};
-  flex-direction: ${(props) => props.flexDirection || "row"};
-  justify-content: ${(props) => props.justifyContent || "flex-start"};
-  align-items: ${(props) => props.alignItems || "stretch"};
-  margin: ${(props) => props.margin || "0"};
-  padding: ${(props) => props.padding || "0"};
+  width: ${(props) => props.$width};
+  display: ${(props) => props.$display};
+  gap: ${(props) => props.$gap};
+  flex-direction: ${(props) => props.$flexDirection};
+  justify-content: ${(props) => props.$justifyContent};
+  align-items: ${(props) => props.$alignItems};
+  margin: ${(props) => props.$margin};
+  padding: ${(props) => props.$padding};
 `;
 
 export const StyledMainContainer = styled(StyledContainer)`
@@ -35,4 +37,8 @@ export const StyledPageContainer = styled(StyledMainContainer)`
   gap: 20px;
   margin-top: 50px;
   margin-bottom: 50px;
+`;
+
+export const StyledSectionBord = styled(StyledContainer)`
+  border: 1px solid;
 `;
