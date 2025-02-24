@@ -9,6 +9,8 @@ export const StyledTaskButton = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  opacity: 1;
+  transition: opacity 0.5s ease;
 `;
 
 export const StyledTaskCheckButton = styled(StyledTaskButton)`
@@ -33,8 +35,13 @@ export const StyledTaskDeleteButton = styled(StyledTaskButton)`
 `;
 
 export const StyledTaskSubmitButton = styled(StyledTaskButton)`
+  height: 100%;
   padding: 5px;
   border-radius: 8px;
   background-color: ${colors.hightPriority};
   margin-left: auto;
+
+  &:disabled {
+    opacity: 0.3;
+  }
 `;

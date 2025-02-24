@@ -39,4 +39,8 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         margin: 0;
     }
+
+    button, input {
+        font-family: 'Comic Sans MS', sans-serif, 'Arial';
+    }
 `;

@@ -5,11 +5,14 @@ type Props = {
     type?: 'button' | 'submit';
     $name?: 'check' | 'delete' | 'addTask'
     onClick?: () => void;
+    disabled: boolean;
 }
 
 
 export const TaskButton: React.FC<Props> = (props) => {
-    const { children, type = 'button', $name } = props;
+    const { children, type = 'button', $name, disabled, ...restProps } = props;
+
+
 
     if ($name === 'check') {
         return (
@@ -25,7 +28,7 @@ export const TaskButton: React.FC<Props> = (props) => {
 
     if ($name === 'addTask') {
         return (
-            <StyledTaskSubmitButton type={type} {...props}>{children}</StyledTaskSubmitButton>
+            <StyledTaskSubmitButton type={type} disabled={disabled} {...restProps}>{children}</StyledTaskSubmitButton>
         )
     }
 
