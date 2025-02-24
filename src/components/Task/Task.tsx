@@ -1,5 +1,6 @@
+import { TaskButton } from "../UI/TaskButton/TaskButton";
 import { Title } from "../UI/Title/Title";
-import { StyledTask, StyledTaskButton } from "./styles";
+import { StyledTask } from "./styles";
 
 type Props = {
   taskName: string;
@@ -10,8 +11,9 @@ export const Task: React.FC<Props> = (props) => {
 
   return (
     <StyledTask>
-      <StyledTaskButton type="button" />
+      <TaskButton type="button" $name="check" />
       <Title as="h3">{taskName}</Title>
+      <TaskButton type="button" $name="delete" />
     </StyledTask>
   )
 

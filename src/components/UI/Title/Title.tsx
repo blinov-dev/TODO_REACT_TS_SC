@@ -1,4 +1,4 @@
-import { StyledTitles } from "./styles";
+import { StyledTitle } from "./styles";
 
 
 type Props = {
@@ -12,7 +12,6 @@ type Props = {
 
 export const Title: React.FC<Props> = (props) => {
     const { children, as = 'h1' } = props;
-    const Tag = StyledTitles[as];
 
-    return <Tag {...props}>{children}</Tag>;
+    return <StyledTitle as={as} {...props}>{children}</StyledTitle>;
 }
