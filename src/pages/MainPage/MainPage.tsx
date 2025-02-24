@@ -1,6 +1,6 @@
 import { Board } from "../../components/Board/Board";
-import { Container } from "../../components/Container/Container";
-import { StyledPageContainer } from "../../components/Container/styles"
+import { Container } from "../../components/UI/Container/Container";
+import { StyledPageContainer } from "../../components/UI/Container/styles"
 import { Title } from "../../components/UI/Title/Title";
 
 

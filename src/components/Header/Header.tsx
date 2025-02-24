@@ -1,5 +1,5 @@
-import { Container } from "../Container/Container";
-import { StyledMainContainer } from "../Container/styles";
+import { Container } from "../UI/Container/Container";
+import { StyledMainContainer } from "../UI/Container/styles";
 import { MainLogo } from "../UI";
 import { StyledHeader, StyledUserMenuLink, StyledThemeButton } from "./styles";
 

@@ -11,6 +11,9 @@ export const StyledBoard = styled.div`
   padding: 20px;
   padding-top: 45px;
   background-color: ${colors.boardBg};
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
 
 export const BeforeBoard = styled.span`

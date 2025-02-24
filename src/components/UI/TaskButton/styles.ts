@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../../themes/Colors";
 
-const StyledTaskButton = styled.button`
+export const StyledTaskButton = styled.button`
   cursor: pointer;
   border: 1px solid ${colors.mainBorder};
   background-color: transparent;
@@ -26,6 +26,13 @@ export const StyledTaskCheckButton = styled(StyledTaskButton)`
 `;
 
 export const StyledTaskDeleteButton = styled(StyledTaskButton)`
+  padding: 5px;
+  border-radius: 8px;
+  background-color: ${colors.hightPriority};
+  margin-left: auto;
+`;
+
+export const StyledTaskSubmitButton = styled(StyledTaskButton)`
   padding: 5px;
   border-radius: 8px;
   background-color: ${colors.hightPriority};

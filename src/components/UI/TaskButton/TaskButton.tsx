@@ -1,15 +1,15 @@
-import { StyledTaskCheckButton, StyledTaskDeleteButton } from "./styles";
+import { StyledTaskButton, StyledTaskCheckButton, StyledTaskDeleteButton, StyledTaskSubmitButton } from "./styles";
 
 type Props = {
     children?: string;
     type?: 'button' | 'submit';
-    $name?: 'check' | 'delete'
+    $name?: 'check' | 'delete' | 'addTask'
     onClick?: () => void;
 }
 
 
 export const TaskButton: React.FC<Props> = (props) => {
-    const { type = 'button', $name } = props;
+    const { children, type = 'button', $name } = props;
 
     if ($name === 'check') {
         return (
@@ -19,7 +19,15 @@ export const TaskButton: React.FC<Props> = (props) => {
 
     if ($name === 'delete') {
         return (
-            <StyledTaskDeleteButton type={type} {...props}>Удалить</StyledTaskDeleteButton>
+            <StyledTaskDeleteButton type={type} {...props}>{children}</StyledTaskDeleteButton>
         )
     }
+
+    if ($name === 'addTask') {
+        return (
+            <StyledTaskSubmitButton type={type} {...props}>{children}</StyledTaskSubmitButton>
+        )
+    }
+
+    return <StyledTaskButton type={type} >{children}</StyledTaskButton>
 }

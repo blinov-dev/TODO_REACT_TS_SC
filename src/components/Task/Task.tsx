@@ -13,7 +13,7 @@ export const Task: React.FC<Props> = (props) => {
     <StyledTask>
       <TaskButton type="button" $name="check" />
       <Title as="h3">{taskName}</Title>
-      <TaskButton type="button" $name="delete" />
+      <TaskButton type="button" $name="delete">Удалить</TaskButton>
     </StyledTask>
   )
 

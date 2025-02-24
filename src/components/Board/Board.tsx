@@ -1,3 +1,4 @@
+import { NewTask } from "../NewTask/NewTask";
 import { Task } from "../Task/Task";
 import { AfterBoard, BeforeBoard, StyledBoard } from "./styles";
 
@@ -10,6 +11,7 @@ export const Board: React.FC<Props> = (props) => {
     return (
         <StyledBoard {...props}>
             <BeforeBoard />
+            <NewTask action="" />
             <Task taskName="Задача №1" />
             <AfterBoard>Доска задач</AfterBoard>
         </StyledBoard>

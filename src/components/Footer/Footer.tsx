@@ -1,4 +1,4 @@
-import { StyledMainContainer } from "../Container/styles";
+import { StyledMainContainer } from "../UI/Container/styles";
 import { MainLogo } from "../UI";
 import { Link } from "../UI/Link/Link";
 import { StyledFooter } from "./styles";
