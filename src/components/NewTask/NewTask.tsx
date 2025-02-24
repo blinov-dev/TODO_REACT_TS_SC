@@ -16,9 +16,7 @@ export const NewTask: React.FC<Props> = ({ action, typeTask = 'NEW' }) => {
         setNewTaskValue(event.target.value)
     }
 
-    const addNewTask = (event: React.FormEvent<HTMLFormElement>): void => {
-        event.preventDefault();
-
+    const addNewTask = (): void => {
         let currentId = 1;
         const tasks = localStorage.getItem(typeTask);
 
@@ -32,7 +30,6 @@ export const NewTask: React.FC<Props> = ({ action, typeTask = 'NEW' }) => {
             id: String(currentId),
             task: newTaskValue,
         }
-
 
         AddToLocalStorageNewTask(typeTask, newTask);
         setNewTaskValue('');

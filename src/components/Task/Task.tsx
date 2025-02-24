@@ -1,19 +1,19 @@
+import { TASK } from "../../types/task";
 import { TaskButton } from "../UI/TaskButton/TaskButton";
 import { Title } from "../UI/Title/Title";
 import { StyledTask } from "./styles";
 
 type Props = {
-  taskName: string;
+  taskInfo: TASK;
 };
 
-export const Task: React.FC<Props> = (props) => {
-  const { taskName } = props;
+export const Task: React.FC<Props> = ({ taskInfo }) => {
 
   return (
     <StyledTask>
-      <TaskButton type="button" $name="check" />
-      <Title as="h3">{taskName}</Title>
-      <TaskButton type="button" $name="delete">Удалить</TaskButton>
+      <TaskButton type="button" $name="check" disabled={false} />
+      <Title as="h3">{taskInfo.task}</Title>
+      <TaskButton type="button" $name="delete" disabled={false}>Удалить</TaskButton>
     </StyledTask>
   )
 
