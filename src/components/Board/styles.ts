@@ -44,3 +44,11 @@ export const AfterBoard = styled.span`
   border: 2px solid ${colors.mainBorder};
   border-radius: 12px;
 `;
+
+export const StyledBoardList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  padding-right: 20px;
+`;

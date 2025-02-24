@@ -43,4 +43,25 @@ export const GlobalStyle = createGlobalStyle`
     button, input {
         font-family: 'Comic Sans MS', sans-serif, 'Arial';
     }
+
+    /* Стили для всего скроллбара */
+    ::-webkit-scrollbar {
+        width: 12px; /* ширина вертикального скроллбара */
+        height: 12px; /* высота горизонтального скроллбара */
+}
+/* Стили для трека (фона) скроллбара */
+    ::-webkit-scrollbar-track {
+        background: ${colors.bodyBg}; /* цвет фона */
+        border-radius: 8px; /* закругленные края */
+}
+/* Стили для ползунка (thumb) скроллбара */
+    ::-webkit-scrollbar-thumb {
+        background-color: ${colors.afterBoardBg}; /* цвет ползунка */
+        border-radius: 8px;
+        border: 1px solid ${colors.mainText}; /* добавим отступ внутри ползунка */
+}
+/* Стили для ползунка при наведении */
+    ::-webkit-scrollbar-thumb:hover {
+        background-color:${colors.complete}; /* цвет ползунка при наведении */
+}
 `;
