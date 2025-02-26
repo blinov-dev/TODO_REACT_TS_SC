@@ -49,7 +49,7 @@ export const Board: React.FC<Props> = ({ typeTasks }) => {
             <NewTask action="" onAddTask={updateTasks} />
             <StyledBoardList>
                 {tasks && tasks.map((item: TASK) => (
-                    <li key={item.id}><Task taskInfo={item} setTasks={setTasks} /></li>
+                    <li key={item.id}><Task task={item} setTasks={setTasks} /></li>
                 ))}
             </StyledBoardList>
             <AfterBoard><Title as="h2">{boardTitle}</Title></AfterBoard>

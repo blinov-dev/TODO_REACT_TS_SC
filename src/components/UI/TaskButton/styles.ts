@@ -14,6 +14,11 @@ export const StyledTaskButton = styled.button`
   justify-content: center;
   opacity: 1;
   transition: opacity 0.5s ease;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 `;
 
 export const StyledTaskCheckButton = styled(StyledTaskButton)`
@@ -42,8 +47,4 @@ export const StyledTaskPendingButton = styled(StyledTaskButton)`
 export const StyledTaskSubmitButton = styled(StyledTaskButton)`
   height: 100%;
   background-color: ${colors.hightPriority};
-
-  &:disabled {
-    opacity: 0.3;
-  }
 `;
