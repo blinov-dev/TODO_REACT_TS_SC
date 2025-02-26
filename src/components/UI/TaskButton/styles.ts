@@ -2,9 +2,12 @@ import styled from "styled-components";
 import { colors } from "../../../themes/Colors";
 
 export const StyledTaskButton = styled.button`
+  height: min-content;
   cursor: pointer;
   border: 1px solid ${colors.mainBorder};
   background-color: transparent;
+  padding: 5px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,9 +17,10 @@ export const StyledTaskButton = styled.button`
 `;
 
 export const StyledTaskCheckButton = styled(StyledTaskButton)`
+  min-width: 30px;
+  min-height: 30px;
   width: 30px;
   height: 30px;
-  border-radius: 8px;
 
   &::before {
     content: "";
@@ -28,18 +32,16 @@ export const StyledTaskCheckButton = styled(StyledTaskButton)`
 `;
 
 export const StyledTaskDeleteButton = styled(StyledTaskButton)`
-  padding: 5px;
-  border-radius: 8px;
   background-color: ${colors.hightPriority};
-  margin-left: auto;
+`;
+
+export const StyledTaskPendingButton = styled(StyledTaskButton)`
+  background-color: ${colors.pending};
 `;
 
 export const StyledTaskSubmitButton = styled(StyledTaskButton)`
   height: 100%;
-  padding: 5px;
-  border-radius: 8px;
   background-color: ${colors.hightPriority};
-  margin-left: auto;
 
   &:disabled {
     opacity: 0.3;

@@ -1,9 +1,9 @@
-import { StyledTaskButton, StyledTaskCheckButton, StyledTaskDeleteButton, StyledTaskSubmitButton } from "./styles";
+import { StyledTaskButton, StyledTaskCheckButton, StyledTaskDeleteButton, StyledTaskPendingButton, StyledTaskSubmitButton } from "./styles";
 
 type Props = {
     children?: string;
     type?: 'button' | 'submit';
-    $name?: 'check' | 'delete' | 'addTask'
+    $name?: 'check' | 'delete' | 'addTask' | 'pending'
     onClick?: () => void;
     disabled: boolean;
 }
@@ -27,6 +27,12 @@ export const TaskButton: React.FC<Props> = (props) => {
     if ($name === 'addTask') {
         return (
             <StyledTaskSubmitButton type={type} disabled={disabled} {...restProps}>{children}</StyledTaskSubmitButton>
+        )
+    }
+
+    if ($name === 'pending') {
+        return (
+            <StyledTaskPendingButton type={type} disabled={disabled} {...restProps}>{children}</StyledTaskPendingButton>
         )
     }
 

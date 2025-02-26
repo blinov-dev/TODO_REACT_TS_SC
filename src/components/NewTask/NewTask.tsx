@@ -6,20 +6,24 @@ import { AddToLocalStorageNewTask } from "../../utils";
 type Props = {
     action: string;
     typeTasks: string;
+    onAddTask: () => void;
 }
 
-export const NewTask: React.FC<Props> = ({ action, typeTasks }) => {
+export const NewTask: React.FC<Props> = ({ action, typeTasks, onAddTask }) => {
     const [newTaskValue, setNewTaskValue] = useState('');
 
     function handleNewTaskValue(event: ChangeEvent<HTMLInputElement>): void {
         setNewTaskValue(event.target.value);
     }
 
-    const addNewTask = (): void => {
+    const addNewTask = (event: React.FormEvent<HTMLFormElement>): void => {
+        event.preventDefault();
+
         if (newTaskValue.trim() === '') return;
 
         AddToLocalStorageNewTask(typeTasks, newTaskValue);
         setNewTaskValue('');
+        onAddTask();
     };
 
     return (

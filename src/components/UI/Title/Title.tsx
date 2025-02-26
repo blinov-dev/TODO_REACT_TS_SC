@@ -7,6 +7,7 @@ type Props = {
     $fontSize?: string;
     $fontWeight?: string;
     $color?: string;
+    $maxWidth?: string;
 }
 
 
