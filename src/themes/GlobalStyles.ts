@@ -41,6 +41,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     button, input {
+        border: none;
         font-family: 'Comic Sans MS', sans-serif, 'Arial';
     }
 

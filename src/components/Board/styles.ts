@@ -14,6 +14,7 @@ export const StyledBoard = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin: 50px 0;
 `;
 
 export const BeforeBoard = styled.span`
