@@ -5,10 +5,11 @@ export function AddToLocalStorageNewTask(
   taskValue: string
 ): TASK {
   const existingTasks = localStorage.getItem(typeTasks);
+
   let tasksArray: TASK[] = [];
   let currentId = 1;
 
-  if (existingTasks) {
+  if (existingTasks && existingTasks.length > 0) {
     tasksArray = JSON.parse(existingTasks);
     const maxId = Math.max(
       ...tasksArray.map((task: { id: string }) => Number(task.id))
@@ -18,12 +19,12 @@ export function AddToLocalStorageNewTask(
 
   const newTask: TASK = {
     id: String(currentId),
-    task: taskValue,
-    status: "Новая",
+    name: taskValue,
+    status: `${typeTasks}`,
   };
 
   tasksArray.push(newTask);
   localStorage.setItem(typeTasks, JSON.stringify(tasksArray));
 
-  return newTask; // Возвращаем созданную задачу
+  return newTask;
 }
