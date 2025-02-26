@@ -1,10 +1,10 @@
 import { TASK } from "../types/task";
 
 export function AddToLocalStorageNewTask(
-  typeTasks: string,
-  taskValue: string
+  taskValue: string,
+  taskStatus?: string
 ): TASK {
-  const existingTasks = localStorage.getItem(typeTasks);
+  const existingTasks = localStorage.getItem("tasks");
 
   let tasksArray: TASK[] = [];
   let currentId = 1;
@@ -20,11 +20,11 @@ export function AddToLocalStorageNewTask(
   const newTask: TASK = {
     id: String(currentId),
     name: taskValue,
-    status: `${typeTasks}`,
+    status: taskStatus ? taskStatus : "Новая",
   };
 
   tasksArray.push(newTask);
-  localStorage.setItem(typeTasks, JSON.stringify(tasksArray));
+  localStorage.setItem("tasks", JSON.stringify(tasksArray));
 
   return newTask;
 }

@@ -1,25 +1,24 @@
 import { TASK } from "../types/task";
-import { AddToLocalStorageNewTask } from "./AddToLocalStorageNewTask";
 
 export function UpdateStatusTaskInLocalStorage(
   task: TASK,
   newStatus: string
-): boolean {
-  const existingTasks = localStorage.getItem(task.status);
+): void {
+  const existingTasks = localStorage.getItem("tasks");
   if (!existingTasks) {
-    return false;
+    return;
   }
 
   const parsedTasks: TASK[] = JSON.parse(existingTasks);
-  const filteredTasks = parsedTasks.filter((item: TASK) => item.id !== task.id);
+  const filteredTasks = parsedTasks.map((item: TASK) => {
+    if (item.id === task.id) {
+      return (item = {
+        ...item,
+        status: newStatus,
+      });
+    }
+    return item;
+  });
 
-  if (filteredTasks.length < parsedTasks.length) {
-    localStorage.setItem(task.status, JSON.stringify(filteredTasks));
-
-    AddToLocalStorageNewTask(newStatus, task.name);
-
-    return true;
-  }
-
-  return false;
+  localStorage.setItem("tasks", JSON.stringify(filteredTasks));
 }

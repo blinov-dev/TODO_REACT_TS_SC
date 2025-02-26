@@ -8,7 +8,7 @@ import { Title } from "../UI/Title/Title";
 
 type Props = {
     children?: React.ReactNode;
-    typeTasks: string;
+    typeTasks?: string;
 }
 
 export const Board: React.FC<Props> = ({ typeTasks }) => {
@@ -17,8 +17,7 @@ export const Board: React.FC<Props> = ({ typeTasks }) => {
     useEffect(() => {
         const loadTasks = () => {
             const fetchedTasks = GetTasksInLocalStorage(typeTasks);
-            const filteredTasks = fetchedTasks.filter((task: TASK) => task.status === typeTasks);
-            setTasks(filteredTasks);
+            setTasks(fetchedTasks);
         };
 
         loadTasks();
@@ -26,18 +25,19 @@ export const Board: React.FC<Props> = ({ typeTasks }) => {
 
     function updateTasks() {
         const fetchedTasks = GetTasksInLocalStorage(typeTasks);
-        const filteredTasks = fetchedTasks.filter((task: TASK) => task.status === typeTasks);
-        setTasks(filteredTasks);
+        setTasks(fetchedTasks);
     };
 
-    function getBoardTitle(typeTasks: string) {
+    function getBoardTitle(typeTasks: string = '') {
         switch (typeTasks) {
             case 'Новая':
-                return 'Новые задачи'
+                return 'Новые'
             case 'Выполнена':
-                return 'Выполненные задачи'
+                return 'Выполненные'
+            case 'Отложена':
+                return 'Отложенные'
             default:
-                return 'Новые задачи';
+                return 'Новые';
         }
     }
 
@@ -46,7 +46,7 @@ export const Board: React.FC<Props> = ({ typeTasks }) => {
     return (
         <StyledBoard>
             <BeforeBoard />
-            <NewTask action="" onAddTask={updateTasks} typeTasks={typeTasks} />
+            <NewTask action="" onAddTask={updateTasks} />
             <StyledBoardList>
                 {tasks && tasks.map((item: TASK) => (
                     <li key={item.id}><Task taskInfo={item} setTasks={setTasks} /></li>
