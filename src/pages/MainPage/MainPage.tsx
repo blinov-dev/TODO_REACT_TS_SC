@@ -9,7 +9,7 @@ export const MainPage: React.FC = () => {
         <StyledPageContainer>
             <Container as='section' $display="flex" $flexDirection="column" $gap="50px">
                 <Title $fontSize="56px">Доска задач</Title>
-                <Board />
+                <Board typeTasks='Новая' />
             </Container>
         </StyledPageContainer>
     );

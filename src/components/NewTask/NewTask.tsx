@@ -5,11 +5,11 @@ import { AddToLocalStorageNewTask } from "../../utils";
 
 type Props = {
     action: string;
-    typeTask?: string;
+    typeTasks?: string;
 }
 
 
-export const NewTask: React.FC<Props> = ({ action, typeTask = 'NEW' }) => {
+export const NewTask: React.FC<Props> = ({ action, typeTasks = 'NEW' }) => {
     const [newTaskValue, setNewTaskValue] = useState('')
 
     function handleNewTaskValue(event: ChangeEvent<HTMLInputElement>): void {
@@ -18,7 +18,7 @@ export const NewTask: React.FC<Props> = ({ action, typeTask = 'NEW' }) => {
 
     const addNewTask = (): void => {
         let currentId = 1;
-        const tasks = localStorage.getItem(typeTask);
+        const tasks = localStorage.getItem(typeTasks);
 
         if (tasks) {
             const tasksArray = JSON.parse(tasks);
@@ -29,9 +29,10 @@ export const NewTask: React.FC<Props> = ({ action, typeTask = 'NEW' }) => {
         const newTask = {
             id: String(currentId),
             task: newTaskValue,
+            status: 'Новая',
         }
 
-        AddToLocalStorageNewTask(typeTask, newTask);
+        AddToLocalStorageNewTask(typeTasks, newTask);
         setNewTaskValue('');
     };
 
