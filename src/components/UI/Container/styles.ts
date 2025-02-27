@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 type StyledContainerProps = {
   as?: keyof JSX.IntrinsicElements;
+  $maxWidth?: string;
   $width?: string;
   $display?: string;
   $flexDirection?: string;
@@ -11,9 +12,11 @@ type StyledContainerProps = {
   $margin?: string;
   $padding?: string;
   $gap?: string;
+  $flexWrap?: string;
 };
 
 export const StyledContainer = styled.div<StyledContainerProps>`
+  max-width: ${(props) => props.$maxWidth};
   width: ${(props) => props.$width};
   display: ${(props) => props.$display};
   gap: ${(props) => props.$gap};
@@ -22,6 +25,7 @@ export const StyledContainer = styled.div<StyledContainerProps>`
   align-items: ${(props) => props.$alignItems};
   margin: ${(props) => props.$margin};
   padding: ${(props) => props.$padding};
+  flex-wrap: ${(props) => props.$flexWrap};
 `;
 
 export const StyledMainContainer = styled(StyledContainer)`

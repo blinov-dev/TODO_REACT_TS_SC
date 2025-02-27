@@ -12,7 +12,7 @@ export const MainPage: React.FC = () => {
     return (
         <StyledPageContainer>
             <Title $fontSize="56px">Доска задач</Title>
-            <Container >
+            <Container $display="flex" $flexWrap="wrap">
                 {tasksStatus && tasksStatus.map((item: string, index: number) =>
                     <TaskStatusToggleButton key={index}>{item}</TaskStatusToggleButton>
                 )}

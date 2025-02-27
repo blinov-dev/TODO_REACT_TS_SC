@@ -3,6 +3,7 @@ import { StyledContainer } from "./styles"
 type Props = {
     children: React.ReactNode;
     as?: string;
+    $maxWidth?: string;
     $width?: string;
     $display?: string;
     $flexDirection?: string;
@@ -11,6 +12,7 @@ type Props = {
     $margin?: string;
     $padding?: string;
     $gap?: string;
+    $flexWrap?: string;
 }
 
 export const Container: React.FC<Props> = (props) => {
