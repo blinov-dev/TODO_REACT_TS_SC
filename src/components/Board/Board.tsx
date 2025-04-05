@@ -33,11 +33,13 @@ export const Board: React.FC<Props> = ({ typeTodos }) => {
             <BeforeBoard />
             <NewTask />
             <StyledBoardList>
-                {filteredTodos && filteredTodos.map((item: typeTodo) => (
+                {filteredTodos.length > 0 ? filteredTodos.map((item: typeTodo) => (
                     <li key={item.id}>
                         <Todo todo={item} />
                     </li>
-                ))}
+                )) :
+                    <Title as="h3">В списке нет задач...</Title>
+                }
             </StyledBoardList>
             <AfterBoard><Title as="h2">{boardTitle}</Title></AfterBoard>
         </StyledBoard>
