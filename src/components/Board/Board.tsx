@@ -1,35 +1,20 @@
-import { useEffect, useState } from "react";
-import { TASK } from "../../types/task";
-import { GetTasksInLocalStorage } from "../../utils";
 import { NewTask } from "../NewTask/NewTask";
-import { Task } from "../Task/Task";
 import { AfterBoard, BeforeBoard, StyledBoard, StyledBoardList } from "./styles";
 import { Title } from "../UI/Title/Title";
+import { useAppSelector } from "../../redux/hooks";
+import { typeTodo } from "../../types";
+import { Todo } from "../Todo";
 
 type Props = {
-    children?: React.ReactNode;
-    typeTasks?: string;
+    typeTodos: string;
 }
 
-export const Board: React.FC<Props> = ({ typeTasks }) => {
-    const [tasks, setTasks] = useState<TASK[]>([]);
+export const Board: React.FC<Props> = ({ typeTodos }) => {
+    const todos = useAppSelector((state) => state.todos);
+    const filteredTodos = todos.filter(i => i.status === typeTodos);
 
-    useEffect(() => {
-        const loadTasks = () => {
-            const fetchedTasks = GetTasksInLocalStorage(typeTasks);
-            setTasks(fetchedTasks);
-        };
-
-        loadTasks();
-    }, [typeTasks]);
-
-    function updateTasks() {
-        const fetchedTasks = GetTasksInLocalStorage(typeTasks);
-        setTasks(fetchedTasks);
-    };
-
-    function getBoardTitle(typeTasks: string = '') {
-        switch (typeTasks) {
+    function getBoardTitle(typeTodos: string = '') {
+        switch (typeTodos) {
             case 'Новая':
                 return 'Новые'
             case 'Выполнена':
@@ -41,15 +26,17 @@ export const Board: React.FC<Props> = ({ typeTasks }) => {
         }
     }
 
-    const boardTitle = getBoardTitle(typeTasks);
+    const boardTitle = getBoardTitle(typeTodos);
 
     return (
         <StyledBoard>
             <BeforeBoard />
-            <NewTask action="" onAddTask={updateTasks} />
+            <NewTask />
             <StyledBoardList>
-                {tasks && tasks.map((item: TASK) => (
-                    <li key={item.id}><Task task={item} setTasks={setTasks} /></li>
+                {filteredTodos && filteredTodos.map((item: typeTodo) => (
+                    <li key={item.id}>
+                        <Todo todo={item} />
+                    </li>
                 ))}
             </StyledBoardList>
             <AfterBoard><Title as="h2">{boardTitle}</Title></AfterBoard>

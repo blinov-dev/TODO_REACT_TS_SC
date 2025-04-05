@@ -1,15 +1,13 @@
 import { ChangeEvent, useState } from "react";
 import { TaskButton } from "../UI/TaskButton/TaskButton";
 import { StyledFormNewTask, StyledInputNewTask } from "./styles";
-import { AddToLocalStorageNewTask } from "../../utils";
 
-type Props = {
-    action: string;
-    onAddTask: () => void;
-}
+import { addTodo } from "../../redux/todos/todosSlice";
+import { useDispatch } from 'react-redux';
 
-export const NewTask: React.FC<Props> = ({ action, onAddTask }) => {
+export const NewTask: React.FC = () => {
     const [newTaskValue, setNewTaskValue] = useState('');
+    const dispatch = useDispatch();
 
     function handleNewTaskValue(event: ChangeEvent<HTMLInputElement>): void {
         setNewTaskValue(event.target.value);
@@ -17,16 +15,13 @@ export const NewTask: React.FC<Props> = ({ action, onAddTask }) => {
 
     const addNewTask = (event: React.FormEvent<HTMLFormElement>): void => {
         event.preventDefault();
-
         if (newTaskValue.trim() === '') return;
-
-        AddToLocalStorageNewTask(newTaskValue);
         setNewTaskValue('');
-        onAddTask();
+        dispatch(addTodo(newTaskValue));
     };
 
     return (
-        <StyledFormNewTask action={action} onSubmit={addNewTask}>
+        <StyledFormNewTask onSubmit={addNewTask}>
             <TaskButton $name="addTask" type="submit" disabled={newTaskValue.length === 0}>Создать</TaskButton>
             <StyledInputNewTask type="text" value={newTaskValue} onChange={handleNewTaskValue} />
         </StyledFormNewTask>
