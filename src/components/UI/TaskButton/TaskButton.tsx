@@ -10,13 +10,14 @@ type Props = {
 
 
 export const TaskButton: React.FC<Props> = (props) => {
-    const { children, type = 'button', $name, disabled, ...restProps } = props;
+    const { children, type, $name, disabled, ...restProps } = props;
 
     if ($name === 'check') {
         return (
-            <StyledTaskCheckButton type={type} {...props} />
+            <StyledTaskCheckButton type={type} {...props}>{children}</StyledTaskCheckButton>
         )
     }
+
 
     if ($name === 'delete') {
         return (

@@ -8,7 +8,7 @@ type Props = {
 
 export const StyledTaskStatusToggleButton = styled.button<Props>`
   position: relative;
-  min-width: 200px;
+  height: 50px;
   cursor: pointer;
   display: block;
   background-color: ${(props) => {
@@ -34,10 +34,10 @@ export const StyledTaskStatusToggleButton = styled.button<Props>`
 export const TaskStatusToggleButtonDecor = styled.span<Props>`
   position: absolute;
   z-index: 2;
-  top: 0;
-  left: ${(props) => (props.$activeToggle ? "81%" : "-1px")};
-  width: 20%;
-  height: 100%;
+  top: -1px;
+  left: ${(props) => (props.$activeToggle ? "86%" : "-2%")};
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: 1px solid ${colors.mainText};
   background-color: ${(props) =>

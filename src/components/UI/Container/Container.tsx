@@ -6,6 +6,7 @@ type Props = {
     $maxWidth?: string;
     $width?: string;
     $display?: string;
+    $gridTemplateColumns?: string;
     $flexDirection?: string;
     $justifyContent?: string;
     $alignItems?: string;

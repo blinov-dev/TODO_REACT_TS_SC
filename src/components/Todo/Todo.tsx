@@ -23,7 +23,9 @@ export const Todo: React.FC<Props> = ({ todo }) => {
 
   return (
     <StyledTask>
-      <TaskButton type="button" $name="check" disabled={false} onClick={() => changeStatus(todo, 'Выполнена')} />
+      <Container $display="flex" $gap="20px">
+        <TaskButton type="button" $name="check" disabled={false} onClick={() => changeStatus(todo, 'Выполнена')} >Выполнить</TaskButton>
+      </Container>
       <Title as="h3">{todo.text}</Title>
       <Container $display="flex" $gap="20px" $margin="0 0 0 auto">
         <TaskButton type="button" $name="pending" disabled={todo.status === 'Отложена' ? true : false} onClick={() => changeStatus(todo, 'Отложена')}>Отложить</TaskButton>

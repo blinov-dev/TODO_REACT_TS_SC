@@ -22,18 +22,7 @@ export const StyledTaskButton = styled.button`
 `;
 
 export const StyledTaskCheckButton = styled(StyledTaskButton)`
-  min-width: 30px;
-  min-height: 30px;
-  width: 30px;
-  height: 30px;
-
-  &::before {
-    content: "";
-    width: 80%;
-    height: 80%;
-    border-radius: 8px;
-    background-color: ${colors.complete};
-  }
+  background-color: ${colors.complete};
 `;
 
 export const StyledTaskDeleteButton = styled(StyledTaskButton)`

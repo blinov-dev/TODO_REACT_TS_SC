@@ -8,6 +8,7 @@ type Props = {
     $fontWeight?: string;
     $color?: string;
     $maxWidth?: string;
+    $textAlign?: string;
 }
 
 

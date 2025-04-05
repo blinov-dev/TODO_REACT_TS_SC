@@ -6,6 +6,7 @@ type StyledContainerProps = {
   $maxWidth?: string;
   $width?: string;
   $display?: string;
+  $gridTemplateColumns?: string;
   $flexDirection?: string;
   $justifyContent?: string;
   $alignItems?: string;
@@ -19,6 +20,7 @@ export const StyledContainer = styled.div<StyledContainerProps>`
   max-width: ${(props) => props.$maxWidth};
   width: ${(props) => props.$width};
   display: ${(props) => props.$display};
+  grid-template-columns: ${(props) => props.$gridTemplateColumns};
   gap: ${(props) => props.$gap};
   flex-direction: ${(props) => props.$flexDirection};
   justify-content: ${(props) => props.$justifyContent};
@@ -34,11 +36,11 @@ export const StyledMainContainer = styled(StyledContainer)`
   margin: 0 auto;
 `;
 
-export const StyledPageContainer = styled(StyledMainContainer)`
+export const StyledPageContainer = styled(StyledContainer)`
+  width: 90%;
+  margin: 0 auto;
   min-height: 100%;
-  flex-direction: column;
   flex: 1;
-  gap: 20px;
   margin-top: 50px;
   margin-bottom: 50px;
 `;
